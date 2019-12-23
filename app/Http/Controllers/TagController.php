@@ -3,26 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Tag;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
 
     public function __construct() {
         $this->middleware('auth');
-    } 
-
+    }
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
-     * 
-     * 
      */
-
-
     public function index()
     {
         //
@@ -35,8 +29,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $category=Category::all();
-        return view('category.create')->withCategory($category);
+        $tags = Tag::all();
+        return view('tags.create')->withTags($tags);
     }
 
     /**
@@ -51,10 +45,10 @@ class CategoryController extends Controller
             'name'=>'required',
         ]);
 
-        $category= new Category;
-        $category->name=$request->name;
-        $category->save();
-        return back()->withInfo('Category created successfully');
+        $tags = new Tag;
+        $tags->name=$request->name;
+        $tags->save();
+        return back()->withInfo('New tag is added successfully');
     }
 
     /**

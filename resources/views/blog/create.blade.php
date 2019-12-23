@@ -21,11 +21,57 @@
 
 
 
-    
                 <div class="form-group">
+                    <label for="category_id">category:</label>
+                    <select name="category_id" class="form-control">
+                        <option value="" class="disabled selected"> select category</option>
+                        @foreach($categories as $category)
+
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                            <label for="tags"> Select Tag:</label>
+                            <select name="tags" class="form-control">
+
+                                @foreach($tags as $tag)
+
+                            @endforeach
+
+                            </div>
+
+
+                    <div class="form-group">
+                            <label for="tags">Tag:</label>
+                            <select name="tags"  class="form-control ">
+                                    <option value="" class="disabled selected"> select tag</option>
+
+                                @foreach($tags as $tag)
+
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+                            </select>
+                            </div>
+
+
+                 <div class="form-group">
+                     <label for="image">select image</label>
+                     <input type="file" name="image" class="form-control">
+                 </div>
+
+
+
+
+
+                <div class="form-group">
+
                     <label for="content">Content:</label>
-                    <textarea type="" rows="8" name="content" class="form-control" placeholder="input text..."></textarea>
-                </div>
+                        <textarea type="" rows="8" name="content" class="form-control" placeholder="input text..."></textarea>
+                    </div>
 
                     <button type="submit" class="btn btn-success">Save</button>
                     <br>

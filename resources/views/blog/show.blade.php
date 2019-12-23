@@ -1,5 +1,7 @@
 @extends('includes.head')
-@section('title',"$posts->title")
+
+@section('title','$posts->title')
+
 @section('content')
     <div class="container ">
         <div class="row justify-content-center">
@@ -23,10 +25,12 @@
                                         <i class="fa fa-reddit"></i>
                                     </div>
                                     <div class="tags">
-                                        <button type="button" class="btn btn-primary">#tags </button>
+                                        @foreach($posts->tags as $tag)
+                                        <button type="button" class="btn btn-primary">#{{$tag->name}} </button>
+                                        @endforeach
                                     </div>
                                     <div class="category">
-                                        <button type="button" class="btn btn-info pull-right "> #category</button>
+                                        <button type="button" class="btn btn-info pull-right ">{{$posts->category->name}} </button>
 <br><br>
                                     </div>
                                     <hr>
@@ -34,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                            <div class="avatar_show"><a href="#"><img src=""></a></div>
+                            <div class="avatar_show"><a href="#"><img src="{{asset('images/'.$posts->image)}}"></a></div>
                                 <br>
                                 <div class="post-content">
                                     <p>{{$posts->content}}</p>
@@ -45,30 +49,26 @@
                 </div>
             </div>
             <br>
+
+
+
         </div>
     </div>
-<center>
+  <center>
     <div class="col-md-3 align:center">
-        <div class="editdelete">
+            <div class="editdelete">
            <a href="{{route('posts.edit',$posts->id)}}" class="btn btn-block btn-success">Edit</a>
                 <br>
             <form action="{{route('posts.destroy',$posts->id)}}" method="post" role="form">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-block btn-danger">Delete</button>
-            </form>
-        </div>
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-block btn-danger">Delete</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 </center>
+
 @endsection
-
-
-
-
-
-
-
-
-

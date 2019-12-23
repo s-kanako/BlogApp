@@ -30,7 +30,7 @@
                       <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="">Post</a>
+                    <a class="nav-link" href="{{route('posts.index')}}">Post</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
@@ -68,8 +68,8 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="{{route('posts.create')}}">Create a New Post</a>
 
-                                              <a class="dropdown-item" href="">Create a New Tag</a>
-                                              <a class="dropdown-item" href="">Create a New Category</a>
+                                              <a class="dropdown-item" href="{{route('tags.create')}}">Create a New Tag</a>
+                                              <a class="dropdown-item" href="{{route('category.create')}}">Create a New Category</a>
                                             </div>
                                          </div>
 
